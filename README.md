@@ -27,4 +27,5 @@ Any other agent that reads `SKILL.md`: copy `skills/<skill-name>/` into its skil
 
 | Skill | What it does |
 |---|---|
+| [english-tutor](skills/english-tutor) | 3-a-day English drills in Telegram (A2 → B1+, work English): one-line answers, immediate feedback, error ledger, spaced repetition, auto difficulty |
 | [word-breakdown](skills/word-breakdown) | Pronunciation breakdown for Russian speakers: syllables, stress, letter→sound rules, Cyrillic hints, PNG whiteboard card, YouGlish link |

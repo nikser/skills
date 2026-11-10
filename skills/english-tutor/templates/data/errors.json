@@ -1,0 +1,4 @@
+{
+  "_doc": "Error ledger. One entry per distinct mistake pattern, not per occurrence. status: open -> drilling -> fixed. Fixed = 3 correct answers on >=3 different days, the last one >=7 days after the first.",
+  "errors": []
+}

@@ -1,0 +1,28 @@
+{
+  "student": "<name>",
+  "native_language": "ru",
+  "timezone": "<IANA tz, e.g. Europe/Berlin>",
+  "start_date": null,
+  "self_assessed_level": "<A1..B2>",
+  "verified_level": null,
+  "target": "<e.g. B1, work English: calls, written communication, interviews>",
+  "interests": ["<topics for examples, e.g. IT, AI>"],
+  "stage": 1,
+  "week": 1,
+  "day": 0,
+  "difficulty": 1.0,
+  "difficulty_scale": "1.0 = A2 baseline; +0.1 per advance step; 1.5 = B1; 2.0 = B2 entry",
+  "placement_done": false,
+  "pending_answer_key": null,
+  "pending_answer_keys": [],
+  "open_keys": [],
+  "stats": {
+    "sessions_done": 0,
+    "questions_asked": 0,
+    "correct": 0,
+    "accuracy_7d": null,
+    "production_tasks_done": 0,
+    "answers_received": 0
+  },
+  "notes": ""
+}

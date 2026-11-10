@@ -1,0 +1,5 @@
+{
+  "_doc": "Spaced repetition queue for rules, collocations and vocabulary. Intervals in days by box. Wrong answer -> box 0, due tomorrow.",
+  "intervals": [1, 3, 7, 16, 35, 90],
+  "items": []
+}
