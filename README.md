@@ -27,4 +27,4 @@ Any other agent that reads `SKILL.md`: copy `skills/<skill-name>/` into its skil
 
 | Skill | What it does |
 |---|---|
-| — | — |
+| [word-breakdown](skills/word-breakdown) | Pronunciation breakdown for Russian speakers: syllables, stress, letter→sound rules, Cyrillic hints, PNG whiteboard card, YouGlish link |
