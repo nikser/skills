@@ -23,28 +23,39 @@ import time
 import urllib.request
 import urllib.error
 
-# Config via env: TELEGRAM_BOT_TOKEN, TUTOR_CHAT_ID, optional TUTOR_THREAD_ID (forum topic),
-# optional TUTOR_ENV_FILE (dotenv to read the token from, default $HERMES_HOME/.env).
+# Config: TELEGRAM_BOT_TOKEN, TUTOR_CHAT_ID, optional TUTOR_THREAD_ID (forum topic) — from the
+# process env, else from TUTOR_ENV_FILE (dotenv, default $HERMES_HOME/.env).
 ENV_PATH = os.environ.get("TUTOR_ENV_FILE",
                           os.path.join(os.environ.get("HERMES_HOME", os.path.expanduser("~/.hermes")), ".env"))
-CHAT_ID = os.environ.get("TUTOR_CHAT_ID", "")
-THREAD_ID = os.environ.get("TUTOR_THREAD_ID", "")
 API = "https://api.telegram.org/bot{token}/{method}"
 
 
+def setting(key: str) -> str:
+    if os.environ.get(key):
+        return os.environ[key].strip()
+    try:
+        with open(ENV_PATH) as fh:
+            for line in fh:
+                line = line.strip()
+                if line.startswith("#") or "=" not in line:
+                    continue
+                k, v = line.split("=", 1)
+                if k.strip() == key:
+                    return v.strip().strip('"').strip("'")
+    except FileNotFoundError:
+        pass
+    return ""
+
+
+CHAT_ID = setting("TUTOR_CHAT_ID")
+THREAD_ID = setting("TUTOR_THREAD_ID")
+
+
 def token() -> str:
-    tok = os.environ.get("TELEGRAM_BOT_TOKEN")
-    if tok:
-        return tok.strip()
-    with open(ENV_PATH) as fh:
-        for line in fh:
-            line = line.strip()
-            if line.startswith("#") or "=" not in line:
-                continue
-            k, v = line.split("=", 1)
-            if k.strip() == "TELEGRAM_BOT_TOKEN":
-                return v.strip().strip('"').strip("'")
-    raise SystemExit("TELEGRAM_BOT_TOKEN not found")
+    tok = setting("TELEGRAM_BOT_TOKEN")
+    if not tok:
+        raise SystemExit("TELEGRAM_BOT_TOKEN not found")
+    return tok
 
 
 def call(method: str, payload: dict) -> dict:
