@@ -101,16 +101,17 @@ def render_svg(spec):
     rx, ry = min(280, inner / 2 - 20), 105
     word = spec["word"]
     fs = min(110, 1.7 * rx / (len(word) * 0.62))
+    lift = 14 if spec.get("subtitle") else 0  # make room for the subtitle inside the ellipse
 
     svg = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}">',
            '<defs><marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">'
            f'<path d="M0,0 L12,6 L0,12 z" fill="{INK}"/></marker></defs>',
            f'<rect width="{W}" height="{H}" fill="white"/>',
            f'<ellipse cx="{cx}" cy="{cy}" rx="{rx}" ry="{ry}" fill="white" stroke="{INK}" stroke-width="4"/>',
-           f'<text x="{cx}" y="{cy + fs * 0.35:.1f}" font-family="DejaVu Sans" font-size="{fs:.0f}" '
+           f'<text x="{cx}" y="{cy + fs * 0.35 - lift:.1f}" font-family="DejaVu Sans" font-size="{fs:.0f}" '
            f'font-weight="bold" fill="{RED}" text-anchor="middle">{escape(word)}</text>']
     if spec.get("subtitle"):
-        svg.append(f'<text x="{cx}" y="{cy + ry - 18:.1f}" font-family="DejaVu Sans" font-size="24" '
+        svg.append(f'<text x="{cx}" y="{cy + ry * 0.62:.1f}" font-family="DejaVu Sans" font-size="24" '
                    f'fill="{GREY}" text-anchor="middle">{escape(spec["subtitle"])}</text>')
 
     def arrow(tx, ty):

@@ -1,7 +1,7 @@
 ---
 name: word-card
 description: "Use on «создай карточку для…»: word meanings mind-map PNG."
-version: 1.0.0
+version: 1.1.0
 author: Nikolay Efimov (nikser), Hermes Agent
 license: MIT
 platforms: [linux, macos]
@@ -23,6 +23,10 @@ Trigger: «создай карточку для <word>», «карточку н�
 ## When to Use
 
 - A polysemous word (`sick`, `get`, `run`), a verb with many particles, a word with tricky neighbours.
+- **Russian → English:** «создай карточку для специально / намеренно». Centre = the main Russian
+  word, `subtitle` = the other Russian synonyms; branches = English equivalents. Here `vs` is the
+  point of the card — register, connotation and the false friend (`specially` vs `specifically`).
+  Check each English candidate's Cambridge entry; ru→en dictionaries aren't on Cambridge.
 - Don't use for pronunciation — that's `word-breakdown` (syllables, stress, sounds).
 
 ## Prerequisites
