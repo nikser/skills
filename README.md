@@ -29,3 +29,4 @@ Any other agent that reads `SKILL.md`: copy `skills/<skill-name>/` into its skil
 |---|---|
 | [english-tutor](skills/english-tutor) | 3-a-day English drills in Telegram (A2 → B1+, work English): one-line answers, immediate feedback, error ledger, spaced repetition, auto difficulty |
 | [word-breakdown](skills/word-breakdown) | Pronunciation breakdown for Russian speakers: syllables, stress, letter→sound rules, Cyrillic hints, PNG whiteboard card, YouGlish link |
+| [word-card](skills/word-card) | «создай карточку для…»: one word → mind-map PNG of its meanings/phrasal verbs with Russian translations, short examples and how it differs from confusable neighbours |
